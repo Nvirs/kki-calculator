@@ -23,24 +23,27 @@ function GenNewInput(){
 
 
 
-    
     var creditInput = document.createElement("input");
     creditInput.setAttribute("type", "tel");
-    creditInput.value = null
-    creditInput.min = 0
-    creditInput.id = idx +"credit"
-    creditInput.className = "numberInput"
-    creditInput.placeholder = '0'
-
+    creditInput.id = idx + "credit";
+    creditInput.className = "numberInput";
+    creditInput.placeholder = '0';
+    
+    // Add event listener to allow only numbers
+    creditInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    
     var gradeInput = document.createElement("input");
     gradeInput.setAttribute("type", "tel");
-    gradeInput.value = null
-    gradeInput.min = 1
-    gradeInput.max = 5
-    gradeInput.id = idx +"grade"
-    gradeInput.className = "numberInput"
-    gradeInput.placeholder = '1'
+    gradeInput.id = idx + "grade";
+    gradeInput.className = "numberInput";
+    gradeInput.placeholder = '1';
     
+    // Add event listener to allow only numbers
+    gradeInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
 
 
 
